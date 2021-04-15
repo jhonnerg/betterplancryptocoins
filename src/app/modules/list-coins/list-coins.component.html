@@ -1,0 +1,36 @@
+<mat-card class="container h-lg-100 h-md-100 h-sm-100 "
+    style="padding: 30px; display: grid; height: 100%; width: 90%; overflow: overlay;">
+    <div *ngIf="is_loadind" class="spinner-container position-absolute d-flex justify-content-center align-items-center anim-fade-in" style="top:0;bottom:0;left:0; right:0 ;z-index:9999; background-color: rgba(255, 255, 255, 0.91); border-radius: 10px;">
+        <mat-spinner class="ccng-default" ></mat-spinner>
+      </div>
+
+    <div class="w-100">
+        <h1>List coins</h1>
+        <mat-divider></mat-divider>
+        <br>
+        <mat-card class="my-4 w-100" style="height: fit-content; width: inherit;" *ngFor="let list of List_Coins">
+            <div class="row">
+                <div class="col-lg-11 col-md-11 col-sm-12 row">
+                    <div class="col-12">
+                        <h2>{{list.name}}</h2>
+                    </div>
+                    <div class="col-12">
+                        <span style="vertical-align: super;">
+                            <h4 style="color: #21212170; ">{{list.id}}</h4>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-12 text-center">
+                    <div class="example-button-container mt-4">
+                        <button mat-mini-fab style="background-color: #908f8f;"
+                            aria-label="Example icon button with a home icon" (click)="RoutelinkDetailCoins(list.id)">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+
+</mat-card>

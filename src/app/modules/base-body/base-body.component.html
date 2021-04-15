@@ -1,0 +1,41 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar navtop">
+        <mat-toolbar-row>
+            <div [style]="{'display':mobileQuery.matches != true ? 'none' :'initial'}">
+                <button mat-icon-button (click)="snav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+
+            <img [src]="'/assets/media/logo-light.svg'" alt="" routerLink="/main" style="cursor: pointer;">
+            <span class="example-spacer"></span>
+            <div class="actions mt-0" *ngIf="mobileQuery.matches != true">
+                <div class="row" style="width: 200px; float: right;">
+                    <div class="col-6 mb-md-1 mb-xl-0 px-1 ">
+                        <a mat-stroked-button href="https://portal.betterplan.cl" class="btn-primary "
+                            target="_blank">Ingresar</a>
+                    </div>
+                    <div class="col-6 mb-md-1 mb-xl-0 px-1">
+                        <a mat-stroked-button href="https://portal.betterplan.cl" class="btn-secondary"
+                            target="_blank">Regístrate</a>
+                    </div>
+                </div>
+            </div>
+
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56" style="    width: 150px;">
+            <mat-nav-list>
+                <a href="https://portal.betterplan.cl" mat-list-item routerLink=".">Ingresar</a>
+                <a href="https://portal.betterplan.cl" mat-list-item routerLink=".">Regístrate</a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
