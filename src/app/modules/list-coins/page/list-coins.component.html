@@ -13,32 +13,33 @@
 		<mat-form-field appearance="fill" class="w-100">
 			<mat-label>Search coins</mat-label>
 			<input matInput placeholder="search coins..." autocomplete="off" id="search" [value]="search_data"
-				[(ngModel)]="search_data" required (keyup)="searchData($event)" /> 
-			<mat-icon matSuffix for="search" ><span class="material-icons">
-				search
-				</span> 
+				[(ngModel)]="search_data" required (keyup)="searchData($event)" />
+			<mat-icon matSuffix for="search"><span class="material-icons">
+					search
+				</span>
 			</mat-icon>
 		</mat-form-field>
-		<mat-card class="my-4 w-100" style="height: fit-content; width: inherit" *ngFor="let list of List_Coins_Temp">
+		<mat-card class="my-4 w-100 wallet-card" style="height: fit-content; width: inherit;background-color: #d3d3d363;"
+			*ngFor="let list of List_Coins_Temp" (click)="RoutelinkDetailCoins(list.id)">
 			<div class="row">
-				<div class="col-lg-11 col-md-11 col-sm-12 row">
+				<div class="col-lg-12 col-md-12 col-sm-12 row">
 					<div class="col-12">
 						<h2>{{ list.name }}</h2>
 					</div>
 					<div class="col-12">
 						<span style="vertical-align: super">
-							<h4 style="color: #21212170">{{ list.id }}</h4>
+							<h4 style="color: #212121bf">{{ list.id }}</h4>
 						</span>
 					</div>
 				</div>
-				<div class="col-lg-1 col-md-1 col-sm-12 text-center">
+				<!-- <div class="col-lg-1 col-md-1 col-sm-12 text-center">
 					<div class="example-button-container mt-4">
 						<button mat-mini-fab style="background-color: #cacaca; box-shadow: none;"
-							aria-label="Example icon button with a home icon" (click)="RoutelinkDetailCoins(list.id)">
+							aria-label="Example icon button with a home icon" >
 							<mat-icon>remove_red_eye</mat-icon>
 						</button>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</mat-card>
 		<mat-card class="my-4 w-100" style="height: 88px; width: inherit; box-shadow: none" *ngIf="is_loadind_data">

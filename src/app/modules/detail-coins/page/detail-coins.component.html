@@ -1,4 +1,4 @@
-<div class="container h-lg-100 h-md-100 h-sm-100 " style="padding: 30px; height: 100%; width: 90%; overflow: overlay;">
+<div id="body-card" class="container h-lg-100 h-md-100 h-sm-100 " style="padding: 30px; ">
     <div *ngIf="is_loadind"
         class="spinner-container position-absolute d-flex justify-content-center align-items-center anim-fade-in"
         style="top:0;bottom:0;left:0; right:0 ;z-index:9999; background-color: rgba(255, 255, 255, 0.91); border-radius: 10px;">
@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-12 p-4">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6 text-center">
+                        <div class="col-sm-12 col-md-6 col-lg-6 text-left">
                             <h2 style="font-weight: bolder ;display: inline-block; margin-right: 10px;">Coin price:
                             </h2>
                             <span class="h5"
@@ -32,14 +32,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-4">
+                <div class="col-12 p-4 ">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-left">
                             <h2 style="font-weight: bolder ;display: inline-block; margin-right: 10px;">Coin rank: </h2>
                             <span class="h5" *ngIf="Detail_id.coingecko_rank">N º {{Detail_id.coingecko_rank}}</span>
                             <span class="h5" *ngIf="!Detail_id.coingecko_rank">Data null</span>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 text-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-left">
                             <h2 style="font-weight: bolder ;display: inline-block; margin-right: 10px;"> Coin score:
                             </h2>
                             <span class="h5" *ngIf="Detail_id.coingecko_score"> {{Detail_id.coingecko_score}}</span>
@@ -57,7 +57,7 @@
                             </h2>
                             <mat-tab-group mat-stretch-tabs class="example-stretched-tabs  ">
                                 <mat-tab label="Spanish" *ngIf="Detail_id.description.es">
-                                   <p translate="yes">{{Detail_id.description.es}}</p>
+                                    <p translate="yes">{{Detail_id.description.es}}</p>
                                 </mat-tab>
                                 <mat-tab label="Spanish" *ngIf="!Detail_id.description.es"> Data null </mat-tab>
                                 <mat-tab label="English" *ngIf="Detail_id.description.en">{{Detail_id.description.en}}
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-4">
+                <div class="col-12 p-4 pt-0">
                     <div class="row">
                         <div class="col-12">
                             <h2 style="font-weight: bolder ;display: inline-block; ">
@@ -79,26 +79,26 @@
                         <div class="col-12 p-0">
                             <div class="row">
                                 <div class="col-12 mb-3">
-                                    <a class="w-sm-100 w-md-25 w-lg-50" style="
+                                    <a class="w-sm-100 w-md-50 w-lg-50" style="
                                     width: 100%;
                                     overflow: hidden;
                                     text-overflow: ellipsis;" *ngIf="Detail_id.links.blockchain_site[0]"
                                         mat-stroked-button href="{{Detail_id.links.blockchain_site[0]}}"
                                         target="_blank">{{Detail_id.links.blockchain_site[0]}}</a>
-                                    <a class="w-sm-100 w-md-25 w-lg-50" style="
+                                    <a class="w-sm-100 w-md-50 w-lg-50" style="
                                     width: 100%;
                                     overflow: hidden;
                                     text-overflow: ellipsis;" *ngIf="!Detail_id.links.blockchain_site[0]"
                                         mat-stroked-button href="." target="_blank">Data null</a>
                                 </div>
                                 <div class="col-12 mb-3">
-                                    <a class="w-sm-100 w-md-25 w-lg-50" style="
+                                    <a class="w-sm-100 w-md-50 w-lg-50" style="
                                     width: 100%;
                                     overflow: hidden;
                                     text-overflow: ellipsis;" *ngIf="Detail_id.links.homepage[0]" mat-stroked-button
                                         href="{{Detail_id.links.homepage[0]}}"
                                         target="_blank">{{Detail_id.links.homepage[0]}}</a>
-                                    <a class="w-sm-100 w-md-25 w-lg-50" style="
+                                    <a class="w-sm-100 w-md-50 w-lg-50" style="
                                     width: 100%;
                                     overflow: hidden;
                                     text-overflow: ellipsis;" *ngIf="!Detail_id.links.homepage[0]" mat-stroked-button
@@ -111,20 +111,30 @@
                 </div>
                 <div class="col-12 p-4">
                     <div class="row">
-                        <div class="col-12  text-md-center text-sm-center text-lg-right">
-                            <h2 style="font-weight: bolder ;display: inline-block; margin-right: 10px; ">
-                                Coin platform
-                            </h2>
-                            <a class="w-sm-100 w-md-25 w-lg-50" style="
-                            width: 100%;
-                            overflow: hidden;
-                            text-overflow: ellipsis;" *ngIf="Detail_id.platforms.ethereum"
-                                mat-stroked-button>{{Detail_id.platforms.ethereum}}</a>
-                            <a class="w-sm-100 w-md-25 w-lg-50" style="
-                            width: 100%;
-                            overflow: hidden;
-                            text-overflow: ellipsis;" *ngIf="!Detail_id.platforms.ethereum" mat-stroked-button>Data
-                                null</a>
+                        <div class="col-12 ">
+                            <div class="w-lg-50 ">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <h2 style="font-weight: bolder ;display: inline-block;  "
+                                            class="w-sm-100 w-md-50 text-lg-left">
+                                            Coin platform
+                                        </h2>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <a class="w-100" style="
+                                    width: 100%;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;" *ngIf="Detail_id.platforms.ethereum"
+                                            mat-stroked-button>{{Detail_id.platforms.ethereum}}</a>
+                                        <a class="w-100" style="
+                                    width: 100%;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;" *ngIf="!Detail_id.platforms.ethereum"
+                                            mat-stroked-button>Data
+                                            null</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
