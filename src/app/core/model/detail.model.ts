@@ -8,7 +8,10 @@ export class detail_coins {
     community_data: any;
     community_score: any;
     country_origin: any;
-    description: any;
+    description: any ={
+        es:'',
+        en:''
+    };
     developer_data: any;
     developer_score: any;
     genesis_date: any;
@@ -16,13 +19,20 @@ export class detail_coins {
     id: any;
     image: any;
     last_updated: any;
-    links: any;
+    links: any ={
+        blockchain_site:[ ],
+        homepage:[]
+    };
     liquidity_score: any;
     localization: any;
     market_cap_rank: any;
-    market_data: any;
+    market_data: any = {
+        current_price:''
+    };
     name: any;
-    platforms: any;
+    platforms: any ={
+        ethereum:''
+    };
     public_interest_score: any;
     public_interest_stats: any;
     public_notice: any;
