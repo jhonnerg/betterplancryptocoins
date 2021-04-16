@@ -8,30 +8,30 @@ export class detail_coins {
     community_data: any;
     community_score: any;
     country_origin: any;
-    description: any ={
-        es:'',
-        en:''
+    description: any = {
+        es: '',
+        en: ''
     };
     developer_data: any;
     developer_score: any;
     genesis_date: any;
     hashing_algorithm: any;
     id: any;
-    image: any;
+    image: any = { small: '' };
     last_updated: any;
-    links: any ={
-        blockchain_site:[ ],
-        homepage:[]
+    links: any = {
+        blockchain_site: [],
+        homepage: []
     };
     liquidity_score: any;
     localization: any;
     market_cap_rank: any;
     market_data: any = {
-        current_price:''
+        current_price: ''
     };
     name: any;
-    platforms: any ={
-        ethereum:''
+    platforms: any = {
+        ethereum: ''
     };
     public_interest_score: any;
     public_interest_stats: any;

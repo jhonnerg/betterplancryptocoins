@@ -7,10 +7,11 @@
 	</div>
 
 	<div class="w-100">
-		<h1>List coins</h1>
+		<h1 style="font-size: xx-large; display:inline-block;  font-weight: bolder">
+			List coins</h1> 
 		<mat-divider></mat-divider>
 		<br />
-		<mat-form-field appearance="fill" class="w-100">
+		<mat-form-field appearance="fill" class="w-100 mt-3">
 			<mat-label>Search coins</mat-label>
 			<input matInput placeholder="search coins..." autocomplete="off" id="search" [value]="search_data"
 				[(ngModel)]="search_data" required (keyup)="searchData($event)" />
@@ -24,11 +25,12 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12 row">
 					<div class="col-12">
-						<h2>{{ list.name }}</h2>
+						<h2 style="font-weight: bolder ;display: inline-block; margin-right: 10px;">{{ list.name }}
+						</h2> 
 					</div>
 					<div class="col-12">
 						<span style="vertical-align: super">
-							<h4 style="color: #212121bf">{{ list.id }}</h4>
+							<h4 style="color: #21212170; ">{{ list.id }}</h4> 
 						</span>
 					</div>
 				</div>
