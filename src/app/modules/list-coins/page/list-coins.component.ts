@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { list_coins_model } from './list-coins.model';
-import { ServiceService } from './service.service';
+import { list_coins_model } from '../../../core/model/list-coins.model';
+import { ListCoinsService } from '../../../core/service/List-coins/ListCoinsService.service';
 import * as $ from "jquery";
 @Component({
 	selector: 'app-list-coins',
@@ -16,18 +16,18 @@ export class ListCoinsComponent implements OnInit {
 	List_Coins_Temp: list_coins_model[] = [];
 	List_Coins_filter: list_coins_model[] = [];
 	List_Coins_scroll: list_coins_model[] = [];
-	event_bool: boolean = false;
+	event_bool: boolean = false; 
 	index_initial = 0;
 	Size = 10;
 
 	@HostListener('scroll', ['$event'])
-	onScroll(event: any) { 
+	onScroll(event: any) {
 		if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
 			this.ScrollPushData();
 		}
 	}
 
-	constructor(private service: ServiceService, private router: Router) { }
+	constructor(private service: ListCoinsService, private router: Router) { }
 
 	ngOnInit(): void {
 		this.List_coins();
@@ -41,19 +41,22 @@ export class ListCoinsComponent implements OnInit {
 		});
 	}
 
-	ScrollPushData() {
-		if (this.search_data == '') {
-			this.is_loadind_data = true;
-			setTimeout(() => {
-				for (let index = this.index_initial; index < this.Size; index++) {
-					const element = this.List_Coins[index];
-					this.List_Coins_scroll.push(element);
-				}
-				this.List_Coins_Temp = this.List_Coins_scroll;
-				this.index_initial += 10;
-				this.Size += 10;
-				this.is_loadind_data = false;
-			}, 1500);
+	ScrollPushData() { 
+
+		if (this.is_loadind_data == false) {
+			if (this.search_data == '') { 
+				this.is_loadind_data = true;
+				setTimeout(() => {
+					for (let index = this.index_initial; index < this.Size; index++) {
+						const element = this.List_Coins[index];
+						this.List_Coins_scroll.push(element);
+					}
+					this.List_Coins_Temp = this.List_Coins_scroll;
+					this.index_initial += 10;
+					this.Size += 10;
+					this.is_loadind_data = false;
+				}, 1000);
+			}
 		}
 	}
 
@@ -71,5 +74,5 @@ export class ListCoinsComponent implements OnInit {
 		} else {
 			this.List_Coins_Temp = this.List_Coins_scroll;
 		}
-	} 
+	}
 }

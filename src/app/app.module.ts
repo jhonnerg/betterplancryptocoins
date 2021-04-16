@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule  } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';  
-import { ServiceService } from './modules/list-coins/service.service';
+import { AppComponent } from './app.component';   
 
 
 @NgModule({
@@ -20,8 +19,7 @@ import { ServiceService } from './modules/list-coins/service.service';
     AppRoutingModule,
     
     
-  ],
-  providers: [ServiceService],
+  ], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { detail_coins } from './detail.model';
-import { ServiceService } from './service.service';
+import { detail_coins } from '../../../core/model/detail.model';
+import { DetailCoinsService } from '../../../core/service/Detail-coins/DetailCoinsService.service';
 
 @Component({
   selector: 'app-detail-coins',
@@ -14,7 +14,7 @@ export class DetailCoinsComponent implements OnInit {
   public id_coin: any = '';
   public Detail_id: detail_coins = new detail_coins();
 
-  constructor(private route: ActivatedRoute, private service: ServiceService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private service: DetailCoinsService, private location: Location) { }
 
   ngOnInit(): void {
     this.id_coin = this.route.snapshot.paramMap.get('id');

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { list_coins_model } from './list-coins.model';
+import { list_coins_model } from '../../model/list-coins.model';
 @Injectable()
-export class ServiceService {
+export class ListCoinsService {
   public url: string;
 
   constructor(private http: HttpClient) {

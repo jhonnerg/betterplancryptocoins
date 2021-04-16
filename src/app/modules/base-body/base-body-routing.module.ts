@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { DetailCoinsComponent } from '../detail-coins/detail-coins.component';
-import { ListCoinsComponent } from '../list-coins/list-coins.component';
-import { MainPageComponent } from '../main-page/main-page.component';
-import { BaseBodyComponent } from './base-body.component';
+import { RouterModule, Routes } from '@angular/router'; 
+import { BaseBodyComponent } from './page/base-body.component';
 
 const routes: Routes = [
 

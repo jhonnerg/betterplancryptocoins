@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BaseBodyRoutingModule } from './base-body-routing.module';
-import { BaseBodyComponent } from './base-body.component';
+import { BaseBodyComponent } from './page/base-body.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';

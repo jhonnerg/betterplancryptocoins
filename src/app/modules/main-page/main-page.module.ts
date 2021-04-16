@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MainPageRoutingModule } from './main-page-routing.module';
-import { MainPageComponent } from './main-page.component';
+import { MainPageComponent } from './page/main-page.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
