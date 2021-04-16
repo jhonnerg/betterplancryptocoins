@@ -1,13 +1,8 @@
-<mat-card
-	class="container h-lg-100 h-md-100 h-sm-100"
-	style="padding: 30px; display: grid; height: 100%; width: 90%; overflow: overlay"
-	(scroll)="onScroll($event)"
->
-	<div
-		*ngIf="is_loadind"
+<mat-card id="body-card" class="container h-lg-100 h-md-100 h-sm-100"
+	style="padding: 30px; display: grid; height: 100%; width: 90%; overflow: overlay" (scroll)="onScroll($event)">
+	<div *ngIf="is_loadind"
 		class="spinner-container position-absolute d-flex justify-content-center align-items-center anim-fade-in"
-		style="top: 0; bottom: 0; left: 0; right: 0; z-index: 9999; background-color: rgba(255, 255, 255, 0.91); border-radius: 10px"
-	>
+		style="top: 0; bottom: 0; left: 0; right: 0; z-index: 9999; background-color: rgba(255, 255, 255, 0.91); border-radius: 10px">
 		<mat-spinner class="ccng-default"></mat-spinner>
 	</div>
 
@@ -17,7 +12,12 @@
 		<br />
 		<mat-form-field appearance="fill" class="w-100">
 			<mat-label>Search coins</mat-label>
-			<input matInput placeholder="search coins..." [value]="search_data" [(ngModel)]="search_data" required (change)="searchData($event)" />
+			<input matInput placeholder="search coins..." autocomplete="off" id="search" [value]="search_data"
+				[(ngModel)]="search_data" required (keyup)="searchData($event)" /> 
+			<mat-icon matSuffix for="search" ><span class="material-icons">
+				search
+				</span> 
+			</mat-icon>
 		</mat-form-field>
 		<mat-card class="my-4 w-100" style="height: fit-content; width: inherit" *ngFor="let list of List_Coins_Temp">
 			<div class="row">
@@ -33,12 +33,8 @@
 				</div>
 				<div class="col-lg-1 col-md-1 col-sm-12 text-center">
 					<div class="example-button-container mt-4">
-						<button
-							mat-mini-fab
-							style="background-color: #cacaca; box-shadow: none;"
-							aria-label="Example icon button with a home icon"
-							(click)="RoutelinkDetailCoins(list.id)"
-						>
+						<button mat-mini-fab style="background-color: #cacaca; box-shadow: none;"
+							aria-label="Example icon button with a home icon" (click)="RoutelinkDetailCoins(list.id)">
 							<mat-icon>remove_red_eye</mat-icon>
 						</button>
 					</div>
@@ -46,8 +42,7 @@
 			</div>
 		</mat-card>
 		<mat-card class="my-4 w-100" style="height: 88px; width: inherit; box-shadow: none" *ngIf="is_loadind_data">
-			<div
-				class="spinner-container position-absolute d-flex justify-content-center align-items-center anim-fade-in"
+			<div class="spinner-container position-absolute d-flex justify-content-center align-items-center anim-fade-in"
 				style="
 					top: 0;
 					bottom: 0;
@@ -56,8 +51,7 @@
 					z-index: 9999;
 					background-color: rgba(255, 255, 255, 0.91);
 					border-radius: 10px;
-				"
-			>
+				">
 				<mat-spinner class="ccng-default"></mat-spinner>
 			</div>
 		</mat-card>

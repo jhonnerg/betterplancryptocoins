@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { list_coins_model } from './list-coins.model';
 import { ServiceService } from './service.service';
-
+import * as $ from "jquery";
 @Component({
 	selector: 'app-list-coins',
 	templateUrl: './list-coins.component.html',
@@ -21,13 +21,13 @@ export class ListCoinsComponent implements OnInit {
 	Size = 10;
 
 	@HostListener('scroll', ['$event'])
-	onScroll(event: any) {
+	onScroll(event: any) { 
 		if (event.target.offsetHeight + event.target.scrollTop >= event.target.scrollHeight) {
 			this.ScrollPushData();
 		}
 	}
 
-	constructor(private service: ServiceService, private router: Router) {}
+	constructor(private service: ServiceService, private router: Router) { }
 
 	ngOnInit(): void {
 		this.List_coins();
@@ -42,20 +42,19 @@ export class ListCoinsComponent implements OnInit {
 	}
 
 	ScrollPushData() {
-      console.log("pasa")
-	if (this.search_data == '') {
-      this.is_loadind_data = true;
-		setTimeout(() => {
-			for (let index = this.index_initial; index < this.Size; index++) {
-				const element = this.List_Coins[index];
-				this.List_Coins_scroll.push(element);
-			}
-			this.List_Coins_Temp = this.List_Coins_scroll;
-			this.index_initial += 10;
-			this.Size += 10;
-			this.is_loadind_data = false;
-		}, 1500);
-   }
+		if (this.search_data == '') {
+			this.is_loadind_data = true;
+			setTimeout(() => {
+				for (let index = this.index_initial; index < this.Size; index++) {
+					const element = this.List_Coins[index];
+					this.List_Coins_scroll.push(element);
+				}
+				this.List_Coins_Temp = this.List_Coins_scroll;
+				this.index_initial += 10;
+				this.Size += 10;
+				this.is_loadind_data = false;
+			}, 1500);
+		}
 	}
 
 	RoutelinkDetailCoins(id: any) {
@@ -64,13 +63,13 @@ export class ListCoinsComponent implements OnInit {
 
 	searchData(searchValue: any) {
 		if (this.search_data != '') {
-         this.List_Coins_filter = this.List_Coins.filter((item: list_coins_model) => {
-			 
-            return item.name.toLowerCase().includes(this.search_data.toLowerCase());
-         });
-         this.List_Coins_Temp = this.List_Coins_filter; 
-      } else {
-         this.List_Coins_Temp = this.List_Coins_scroll; 
-      }
-	}
+			this.List_Coins_filter = this.List_Coins.filter((item: list_coins_model) => {
+
+				return item.name.toLowerCase().includes(this.search_data.toLowerCase());
+			});
+			this.List_Coins_Temp = this.List_Coins_filter;
+		} else {
+			this.List_Coins_Temp = this.List_Coins_scroll;
+		}
+	} 
 }
